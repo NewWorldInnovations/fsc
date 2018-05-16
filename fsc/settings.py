@@ -56,7 +56,9 @@ ROOT_URLCONF = 'fsc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(os.path.dirname(BASE_DIR), "templates")
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +126,21 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static", "static-only")
 MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static", "static")),
+
+
+
+#SMTP server
+EMAIL_HOST = 'smtp.gmail.com'
+
+#Email@server.com
+EMAIL_HOST_USER = ''
+
+#Password
+EMAIL_HOST_PASSWORD = ''
+
+#TLS (secure) connection when talking to the SMTP server
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+
+#django-registration
+ACCOUNT_ACTIVATION_DAYS = 5
