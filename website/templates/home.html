@@ -13,7 +13,7 @@
 			<div class="caption center-align">
 				<h3 class="bordered">FILIPINO STYLE CARINDERIA</h3>
 				<h5 class="light grey-text text-lighten-3">AUTHENTIC FILIPINO CUISINE IN VANCOUVER!</h5>
-				<a href="!#" class="waves-effect waves-light btn"><i class="material-icons left">restaurant</i>Book a table</a>
+				<a href="{% if user.is_authenticated %}/booktable/{% else %}/login/?next=/booktable/{% endif %}" class="waves-effect waves-light btn"><i class="material-icons left">restaurant</i>Book a table</a>
 			</div>
 		</li>
 		<li>
@@ -21,7 +21,7 @@
 			<div class="caption left-align">
 				<h3>Craving!?</h3>
 				<h5 class="light grey-text text-lighten-3">Filipino foods like you've never tasted before.</h5>
-				<a href="!#" class="waves-effect waves-light btn"><i class="material-icons left">restaurant_menu</i> Menu</a>
+				<a href="/menus/" class="waves-effect waves-light btn"><i class="material-icons left">restaurant_menu</i> Menu</a>
 			</div>
 		</li>
 		<li>
@@ -29,8 +29,8 @@
 			<div class="caption right-align">
 				<h3>Hungry?</h3>
 				<h5 class="light grey-text text-lighten-3">The best food in town at one of the best locations</h5>
-				<a href="!#" class="waves-effect waves-light btn"><i class="material-icons left">shopping_basket</i>Pickup</a>
-				<a href="!#" class="waves-effect waves-light btn"><i class="material-icons left">local_shipping</i>Delivery</a>
+				<a href="/menus/" class="waves-effect waves-light btn"><i class="material-icons left">shopping_basket</i>Pickup</a>
+				<a href="https://www.skipthedishes.com/filipino-style-carinderia/order" class="waves-effect waves-light btn"><i class="material-icons left">local_shipping</i>Delivery</a>
 			</div>
 		</li>
 		<li>
@@ -38,7 +38,7 @@
 			<div class="caption center-align">
 				<h3>Catering Services</h3>
 				<h5 class="light grey-text text-lighten-3">View our menu list and Call now!</h5>
-				<a href="!#" class="waves-effect waves-light btn #c0996b"><i class="material-icons left">fastfood</i>Click for Menu</a>
+				<a href="/menus/#catering" class="waves-effect waves-light btn #c0996b"><i class="material-icons left">fastfood</i>Click for Menu</a>
 				<h3><a href="tel:778-898-5254">(778)898-5254</a></h3>
 			</div>
 		</li>
@@ -47,7 +47,7 @@
 			<div class="caption center-align">
 				<h3>Free Food!!!</h3>
 				<h5 class="light grey-text text-lighten-3">Sign up and collect stamps on every order!</h5>
-				<a href="!#" class="waves-effect waves-light btn #c0996b"><i class="material-icons left">local_play</i>Sign up now</a>
+				<a href="{% url 'signuppage' %}" class="waves-effect waves-light btn #c0996b"><i class="material-icons left">local_play</i>Sign up now</a>
 			</div>
 		</li>
 
@@ -140,7 +140,8 @@
 							<i class="material-icons text-yellow tiny">star</i>
 							<i class="material-icons text-yellow tiny">star</i>
 							<i class="material-icons text-yellow tiny">star</i>
-						</a>
+							(4.5) 12 reviews
+						</a> 
 					</p>
 					<p>
 						<a class="choices tooltipped" data-position="top" data-delay="50" data-tooltip="Small">S</a>&nbsp;<span class="price">$3.75</span>&nbsp;

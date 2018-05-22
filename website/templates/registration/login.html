@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <div class="main">
+  	{% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    {% endfor %}
+		</ul>
+	{% endif %}
+  	<div class="container">
+      <p class="red-text">{{ form.non_field_errors }}</p>
+  		<div id="log" class="z-depth-1 grey lighten-4 row">
+  			<form id="log" class="col s12" method="POST">
+  				{% csrf_token %}
+  				<div class='row'>
+  					<div class='input-field col s12'>
+              {{ form.username }}
+              <label for="{{ form.username.id_for_label }}">{{ form.username.label}}</label>
+            </div>
+            </div>
+            	<div class='row'>
+            		<div class='input-field col s12'>
+            			{{ form.password }}
+            			<label for="{{ form.password.id_for_label }}">{{ form.password.label}}</label>
+              		</div>
+              		<label id="log">
+              			<a class='' href='/password_reset/' style="color: #01579b;"><b>Forgot Password?</b></a>
+              		</label>
+            	</div>
+
+      
+              <div id="log-btn" class='row'>
+                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect light-blue darken-4'>Login</button>
+              </div>
+            
+          </form>
+        </div>
+      </div>
+      <div id="log-s" class="z-depth-1 grey lighten-4 row">
+      	<a href="{% url 'signuppage' %}" style="color: #01579b;">Create account</a>
+      </div>
+  </div>
+{% endblock %}

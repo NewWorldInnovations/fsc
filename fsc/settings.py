@@ -128,6 +128,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static", "static")),
 
 
+#On successful login
+LOGIN_REDIRECT_URL = 'home'
+
 
 #SMTP server
 EMAIL_HOST = 'smtp.gmail.com'

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+  <div class="container">
+    <h5><i class="fa fa-edit fa-lg"></i> Sign-up</h5>
+    <div class="row">
+      <div class="col l3">&nbsp;</div>
+      <div class="col l6 z-depth-1 grey lighten-4">
+      <form class="col s12" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class='row'>
+          <div class='input-field col s12'>
+          {{ field }}
+            <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} <span class="red-text">*</span>{% endif %}
+              {% if field.help_text %}
+              <a href="#" class="tooltipped" data-position="bottom" data-enable-html="true" data-tooltip="{{ field.help_text|safe }}" onclick="return false;">
+                <i class="far fa-question-circle"></i>
+              </a>
+              {% endif %}
+            </label>
+            {% for error in field.errors %}
+              <p class="red-text">{{ error }}</p>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+        <span class="red-text">All field with (*) are required. </span>
+        <div id="signup-btn" class='row'>
+          <button type="submit" id="sign-up" class="btn waves-effect waves-light navy">Sign up</button>
+        </div>
+
+      </form>
+      </div>
+      <div class="col l3">&nbsp;</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
