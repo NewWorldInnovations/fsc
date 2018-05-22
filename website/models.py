@@ -40,6 +40,19 @@ class UserStamps(models.Model):
 	purchase_date = models.DateTimeField(("Purchase Date"), default=timezone.now)
 	date_created = models.DateTimeField(("Date Created"), default=timezone.now)
 
+
+# class BookCatering(models.Model):
+# 	usr = models.ForeignKey(User,verbose_name='User ID', default=None)
+# 	foods = models.OneToMany(Foods)
+# 	date_event = models.DateTimeField(("Event Date"), default=timezone.now)
+# 	date_created = models.DateTimeField(("Date Created"), default=timezone.now)
+
+# class BookTable(models.Model):
+# 	usr = models.ForeignKey(User,verbose_name='User ID', default=None)
+# 	#pax = models.IntegerField
+# 	date_book = models.DateTimeField(("Book Date"), default=timezone.now)
+# 	date_created = models.DateTimeField(("Date Created"), default=timezone.now)
+
 class Contact(models.Model):
 	fname = models.CharField(max_length=40, verbose_name='Firstname')
 	lname = models.CharField(max_length=40, verbose_name='Lastname')
