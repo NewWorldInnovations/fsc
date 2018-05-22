@@ -1,3 +1,12 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:500,600,700";
+@import "https://fonts.googleapis.com/css?family=Dancing+Script:400,700";
+@import "https://fonts.googleapis.com/css?family=Varela+Round";
+
+@font-face {
+    font-family: grapam;
+    src: url("../fonts/grapam.TTF");
+}
+
 html{
 	color:#000;
 }
@@ -9,7 +18,7 @@ nav, nav ul a, nav a{
 }
 
 nav ul a:hover{
-	color: #CCC;
+	color: #c0996b;
 	background-color: transparent;
 
 }
@@ -39,3 +48,180 @@ nav .brand-logo{
 	height: 50px;
 }
 
+/*SLIDER*/
+.slider .indicators .indicator-item.active{
+	background-color: #c0996b;
+}
+
+.caption .btn{
+	background-color: #c0996b;
+}
+
+.caption h3 a {
+	color:#FFF;
+}
+.caption h5{
+	font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: -1px;
+    line-height: 30px;
+    font-family: "Poppins", sans-serif;
+}
+.caption h3{
+	font-weight: 400;
+    text-transform: uppercase;
+    font-family: "Varela Round", sans-serif;
+}
+
+.caption .bordered{
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;
+	font-family: "Varela Round", sans-serif;
+}
+
+/*DROPDOWN NAV*/
+.dropdown-content li>a, .dropdown-content li>span{
+	color:#c0996b;
+}
+
+/*CONTENT*/
+.title{
+	font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: -1px;
+    line-height: 30px;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+    font-size: 36px;
+}
+.span-title{
+	font-weight: 400;
+    font-family: "Dancing Script", cursive;
+    text-transform: uppercase;
+    font-size: 60px;
+    color: #c0996b;
+}
+
+.span-accent{
+	font-weight: 400;
+    font-family: "Dancing Script", cursive;
+    text-transform: uppercase;
+    color: #c0996b;
+}
+.subtitle{
+	text-transform: capitalize;
+    color: #999;
+    position: relative;
+    display: inline-block;
+    padding: 0px 40px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+}
+
+.subtitle:before{
+	content: "";
+    width: 30px;
+    height: 4px;
+    background: #eee;
+    position: absolute;
+    top: 50%;
+    margin-top: 0px;
+    left: 0;
+}
+.subtitle:after{
+	content: "";
+    width: 30px;
+    height: 4px;
+    background: #eee;
+    position: absolute;
+    top: 50%;
+    margin-top: 0px;
+    right: 0;
+}
+
+.lead{
+	font-size: 36px;
+    background-color: rgba(3,3,3,0.5);
+    color: #FFF;
+    padding: 10px;
+    text-align: left;
+}
+.p-story{
+	font-size:20px;
+}
+
+blockquote {
+	font-size: 20px;
+	border-left: 5px solid #c0996b;
+}
+
+.parallax-inner{
+    height: 400px;
+}
+
+.card-infos{
+    font-size: 25px;
+}
+
+.space-30{
+	width: 100%;
+	height: 30px;
+}
+
+/*Foods*/
+.choices{
+	font-family: "grapam";
+	font-size: 30px;
+	cursor: pointer;
+	color:#c0996b;
+}
+
+.card.small .card-image, .card.medium .card-image, .card.large .card-image{
+	max-height: 50%;
+}
+.card.small{
+	height: 350px;
+}
+.card .card-title{
+	max-width: 290px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+}
+.morevert{
+	cursor: pointer;
+}
+.price{
+	font-size: 20px;
+	margin-right: 20px;
+    vertical-align: text-bottom;
+    font-family: "Poppins", sans-serif;
+}
+
+/*FOOTER*/
+footer h5 {
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+footer h5:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #c0996b;
+}
+
+footer h5 .material-icons{
+	line-height: 0.7;
+}

@@ -25,9 +25,18 @@
 </head>
 <body>
 	<div class="navbar-fixed">
+		<!-- Dropdown Structure -->
+		<ul id="dropdown1" class="dropdown-content">
+		  <li><a href="#!">Pickup</a></li>
+		  <li><a href="#!">Delivery</a></li>
+		  <li class="divider"></li>
+		  <li><a href="#!">Catering</a></li>
+		</ul>
+
 		<nav class="white" role="navigation">
 			<div class="nav-wrapper container">
-				<a id="logo-container" href="/" class="brand-logo"><img src="{{ STATIC_MEDIA }}logo-black.png" style="height: 100px;" /></a>
+				<a id="logo-container" href="/" class="brand-logo"><img class="responsive-img" src="{{ STATIC_MEDIA }}fsc-logo-rec.png" style="height: 80px;" /></a>
+				
 				<div class="upper-nav right">
 					<div class="phone"><a href="tel:604-564-2055">(604) 564-2055</a></div>&nbsp;
 					<div class="social">
@@ -36,10 +45,11 @@
 					</div>
 				</div><br>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="/home/">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a href="/menu/">Menu</a></li>
-					<li><a href="/about/">About</a></li>
+					<li><a href="#" class="dropdown-button" data-activates="dropdown1">Ordering<i class="material-icons right">arrow_drop_down</i></a></li>
 					<li><a href="/contact/">Contact us</a></li>
+					<li><a href="/signup/">Sign Up</a></li>
 				</ul>
 				<!--mobile markup-->
 				<!-- <ul id="nav-mobile" class="sidenav">
@@ -56,43 +66,42 @@
 
 {% endblock %}
 	
-	<footer class="page-footer orange">
+	<footer class="page-footer black">
 		<div class="container">
 			<div class="row">
 				<div class="col l3 s12">
-					<h5 class="white-text">About us</h5>
-					<p class="grey-text text-lighten-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+					<br>
+					<img src="{{ STATIC_MEDIA }}logo-white.png" height="150">
 				</div>
 				<div class="col l3 s12">
-					<h5 class="white-text">Settings</h5>
+					<h5 class="white-text"><i class="material-icons left">rate_review</i>Recent Reviews</h5>
 					<ul>
-					<li><a class="white-text" href="#!">Link 1</a></li>
-					<li><a class="white-text" href="#!">Link 2</a></li>
-					<li><a class="white-text" href="#!">Link 3</a></li>
-					<li><a class="white-text" href="#!">Link 4</a></li>
+						<li><a class="white-text" href="#!">Link 1</a></li>
+						<li><a class="white-text" href="#!">Link 2</a></li>
+						<li><a class="white-text" href="#!">Link 3</a></li>
+						<li><a class="white-text" href="#!">Link 4</a></li>
 					</ul>
 				</div>
 				<div class="col l3 s12">
-					<h5 class="white-text">Connect</h5>
+					<h5 class="white-text"><i class="material-icons left">store</i>Store Hours</h5>
 					<ul>
-					<li><a class="white-text" href="#!">Link 1</a></li>
-					<li><a class="white-text" href="#!">Link 2</a></li>
-					<li><a class="white-text" href="#!">Link 3</a></li>
-					<li><a class="white-text" href="#!">Link 4</a></li>
+						<li>Sun-Thurs: 9AM - 9PM</li>
+						<li>Friday: 9AM - 8PM</li>
+						<li>Saturday: Closed</li>
 					</ul>
 				</div>
 				<div class="col l3 s12">
-					<h5 class="white-text">Connect</h5>
+					<h5 class="white-text"><i class="material-icons left">contact_support</i>Contact Us</h5>
 					<ul>
-					<li><a class="white-text" href="#!">Link 1</a></li>
-					<li><a class="white-text" href="#!">Link 2</a></li>
-					<li><a class="white-text" href="#!">Link 3</a></li>
-					<li><a class="white-text" href="#!">Link 4</a></li>
+						<li>4942 Joyce St. Vancouver, BC, V5R 4G6</li>
+						<li>Catering: <a class="white-text" href="tel:778-898-5254">(778) 898-5254</a></li>
+						<li>Ordering: <a class="white-text" href="tel:604-564-2055">(604) 564-2055</a></li>
+						<li>Email: <a class="white-text" href="mail:fsc@gmail.com">fsc@gmail.com</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="footer-copyright">
+		<div class="footer-copyright grey darken-3">
 			<div class="container">
 				<span>
 					Copyright © 2018 Filipino Style Carinderia All rights reserved.
@@ -110,7 +119,10 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-
+			$(".dropdown-button").dropdown({
+				hover: true, // Activate on hover
+				belowOrigin: true
+			});
 		});
 	</script>
 

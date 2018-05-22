@@ -7,10 +7,6 @@ def index(request):
 	return render(request, "home.html",context)
 
 
-def aboutus(request):
-	context = {}
-	return render(request, "aboutus.html",context)
-
 def contactus(request):
 	context = {}
 	return render(request, "contactus.html",context)

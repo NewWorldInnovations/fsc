@@ -1,14 +1,95 @@
-{% extends base.html %}
+{% extends 'base.html' %}
 
 
-{% blockheader %}
+{% block header %}
 
-{% endblockheader %}
+{% endblock %}
 
-{% blockcontent %}
-<h1>THIS IS CONTACTUS</h1>
-{% endblockcontent %}
+{% block content %}
+<div class="parallax-container parallax-inner">
+	<div class="parallax"><iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Filipino%20Style%20Carinderia&key=AIzaSyDunzhSwDfKsNtwX8oSS9IOL_PTV-MXsgs" allowfullscreen></iframe></div>
+</div>
+<div class="container">
+	<div class="space-30"></div>
+	<div class="center">
+		<h3 class="title">Leave a <span class="span-title">Message</span></h3>
+		<h5 class="subtitle">Let us know what's in your mind</h5>
+	</div>
+	<div class="row">
+		<div class="col l6">
+			<div class="input-field col l6">
+				<i class="material-icons prefix">account_circle</i>
+				<input id="" name="" type="text" class="validate">
+				<label for="">Firstname</label>
+			</div>
+			<div class="input-field col l6">
+				<input id="" name="" type="text" class="validate">
+				<label for="">Lastname</label>
+			</div>
+			<div class="input-field col l6">
+				<i class="material-icons prefix">email</i>
+				<input id="" name="" type="email" class="validate">
+				<label for="">Email</label>
+			</div>
+			<div class="input-field col l6">
+				<i class="material-icons prefix">phone</i>
+				<input id="" name="" type="text" class="validate">
+				<label for="">Phone</label>
+			</div>
+			<div class="input-field col l12">
+				<i class="material-icons prefix">mode_edit</i>
+				<textarea class="materialize-textarea" data-length="300"></textarea>
+				<label for="">Message</label>
+			</div>
+			<div class="input-field col l12 center">
+				<button class="btn waves-effect waves-light">Submit <i class="material-icons right">send</i></button>
+			</div>
+		</div>
+		<div class="col l6">
+			<div class="row">
+				<div class="col l12">
+					<div class="card-panel teal">
+					  <a class="btn-floating btn-large"><i class="material-icons">event</i></a>&nbsp;
+			          <span class="white-text card-infos"> Catering: <a href="tel:778-898-5254" class="white-text">(778) 898-5254</a>
+			          </span><br><br>
+			          <a class="btn-floating btn-large"><i class="material-icons">email</i></a>&nbsp;
+			          <span class="white-text card-infos"> Email: <a href="mail:fsc@gmail.com" class="white-text">fsc@gmail.com</a>
+			          </span><br><br>
+			          <a class="btn-floating btn-large"><i class="material-icons">shopping_basket</i></a>&nbsp;
+			          <span class="white-text card-infos"> Pickup order: <a href="tel:604-564-2055" class="white-text">(604) 564-2055</a>
+			          </span><br><br>
+			          <a class="btn-floating btn-large"><i class="material-icons">map</i></a>&nbsp;
+			          <span class="white-text card-infos"> 4942 Joyce St. Vancouver, BC, V5R 4G6
+			          </span>
+			        </div>
+		    	</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<h5>
+		<ul class="col l12">
+			<li><i class="material-icons">store</i> Store Hours</li>
+			<li><hr></li>
+			<li>Sun-Thurs: 9AM - 9PM</li>
+			<li>Friday: 9AM - 8PM</li>
+			<li>Saturday: Closed</li>
+		</ul>
+		</h5>
+	</div>
+	<div class="space-30"></div>
+</div>
+<div class="parallax-container">
+	<div class="parallax"><img src="http://archives.materializecss.com/0.100.2/images/parallax2.jpg"></div>
+</div>
+{% endblock %}
 
-{% blockscript %}
+{% block script %}
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.parallax').parallax();
 
-{% endblockscript %}
+		$('textarea').characterCounter();
+    });
+</script>
+{% endblock %}
