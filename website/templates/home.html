@@ -117,22 +117,23 @@
 		<h3 class="title">Quick <span class="span-title">Choices</span></h3>
 		<h5 class="subtitle">Start your day with good taste</h5>
 		<div>
-			<a href="!#" class="waves-effect waves-light btn">All</a>
-			<a href="!#" class="waves-effect waves-light btn">Breakfast</a>
-			<a href="!#" class="waves-effect waves-light btn">Lunch</a>
-			<a href="!#" class="waves-effect waves-light btn">Dinner</a>
+			<a class="waves-effect waves-light btn category" data-cat="all">All</a>
+			<a class="waves-effect waves-light btn category" data-cat="breakfast">Breakfast</a>
+			<a class="waves-effect waves-light btn category" data-cat="lunch">Lunch</a>
+			<a class="waves-effect waves-light btn category" data-cat="dinner">Dinner</a>
 		</div>
 	</div>
 	<div class="space-30"></div>
 	<div class="row">
-		<div class="col l4">
+		{% for item in foods %}
+		<div class="col l4 menus {{ item.category_as_class|lower }}">
 			<div class="card small">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img class="activator" src="http://archives.materializecss.com/0.100.2/images/office.jpg">
 			    </div>
 				<div class="card-content">
 					<a class="tooltipped activator right morevert" data-position="top" data-tooltip="More Info"><i class="material-icons">more_vert</i></a>
-					<span class="card-title grey-text text-darken-4">Calderetang Baka asdasdasdasd</span>
+					<span class="card-title grey-text text-darken-4">{{ item.fname }}</span>
 					<p>
 						<a href="!#" class="tooltipped" data-position="top" data-tooltip="Rating">
 							<i class="material-icons text-yellow tiny">star</i>
@@ -144,18 +145,27 @@
 						</a> 
 					</p>
 					<p>
-						<a class="choices tooltipped" data-position="top" data-delay="50" data-tooltip="Small">S</a>&nbsp;<span class="price">$3.75</span>&nbsp;
-						<a class="choices tooltipped" data-position="top" data-delay="50" data-tooltip="Medium">M</a>&nbsp;<span class="price">$6.25</span>&nbsp;
-						<a class="choices tooltipped" data-position="top" data-delay="50" data-tooltip="Large">L</a>&nbsp;<span class="price">$8.99</span>&nbsp;
+						{% if item.price > 0 %}
+						<a class="btn waves-effect right">$ {{ item.price }}</a>
+						{% else %}
+						<a class="choices tooltipped" data-position="top" data-delay="50" data-tooltip="Small">S</a>&nbsp;<span class="price">${{ item.price_s }}</span>&nbsp;
+						<a class="choices tooltipped" data-position="top" data-delay="50" data-tooltip="Medium">M</a>&nbsp;<span class="price">${{ item.price_m }}</span>&nbsp;
+						<a class="choices tooltipped" data-position="top" data-delay="50" data-tooltip="Large">L</a>&nbsp;<span class="price">${{ item.price_l }}</span>&nbsp;
+						{% endif %}
 					</p>
 
 				</div>
 				<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>Card Title</span>
-					<p>Here is some more information about this product that is only revealed once clicked on.</p>
+					<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{ item.fname }}</span>
+					{% for cat in item.category_as_list %}
+					<div class="chip">{{ cat }}</div>
+					{% endfor %}
+					<p>{{ item.desc }}</p>
+					<p>{{ item.other_info }}</p>
 				</div>
 			</div>
 		</div>
+		{% endfor %}
 	</div>
 	
 	<div class="space-30"></div>
@@ -167,9 +177,26 @@
 {% block script %}
 <script type="text/javascript">
 	$(document).ready(function(){
+		$('.chips').material_chip();
+
 		$('.slider').slider();
 
 		$('.parallax').parallax();
+
+
+		$('.category').click(function(){
+			cat = $(this).attr('data-cat');
+			if(cat=="all"){
+				$('.menus').show();
+			} else {
+				$('.menus').hide();	
+
+				if($('.menus').hasClass(cat)){
+					$('.'+cat).show();
+				}
+			}
+			
+		});
     });
 </script>
 {% endblock %}

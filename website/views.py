@@ -6,22 +6,33 @@ from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 from django.contrib import messages
 
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse,HttpResponseForbidden, JsonResponse, Http404,HttpResponseRedirect
+
 from .tokens import account_activation_token 
 from .email import send_confirmation_email
 from .forms import SignUpForm
+
+
+from .models import Foods
+from .forms import FoodsForm
+
 # Create your views here.
 
 def index(request):
-	context = {}
-	return render(request, "home.html",context)
+    item = Foods.objects.all()
+    context = {'foods':item}
+    return render(request, "home.html",context)
 
 def booktable(request):
 	context = {}
 	return render(request, "booktable.html",context)
 
 def profile(request):
-	context = {}
-	return render(request, "profile.html",context)
+    item = Foods.objects.all()
+    context = {'foods':item}
+
+    return render(request, "profile.html",context)
 
 def signup(request):
     if request.method == 'POST':
@@ -75,3 +86,68 @@ def contactus(request):
 def menus(request):
 	context = {}
 	return render(request, "menu.html",context)
+
+
+def food_form_view(request):
+
+    if request.method == "POST":
+        form = FoodsForm(request.POST)
+        if form.is_valid():
+            dic = form.cleaned_data
+
+            menus = Foods(**dic)
+            menus.save()
+
+
+            form = FoodsForm()
+            context = {"form":form}
+            return render(request, "menu_form.html",context)
+    else:
+        form = FoodsForm()
+        context = {
+            "form":form,
+            "form_action": "/menuform/"
+        }
+        return render(request, "menu_form.html",context)
+
+def food_form_edit(request,id):
+
+    try:
+        item = Foods.objects.get(pk=id)
+        form = FoodsForm(
+            initial={
+                'fname': item.fname,
+                'desc': item.desc,
+                'other_info': item.other_info,
+                'category': item.category,
+                'price_s': item.price_s,
+                'price_m': item.price_m,
+                'price_l': item.price_l,
+                'price': item.price,
+                'f_status': item.f_status,
+            }
+        )
+
+        context = {
+            "form":form,
+            "form_action": "/menuedit/"+id+"/"
+        }
+
+    except (ObjectDoesNotExist, Foods.DoesNotExist):
+        raise Http404("Product does not exist")
+    else:
+        if request.method == 'POST':
+
+            form = FoodsForm(request.POST)
+            if form.is_valid():
+                dic = form.cleaned_data
+
+                menus = Foods.objects.filter(pk=id).update(**dic)
+
+                return HttpResponseRedirect("/menuedit/"+id+"/")
+
+        else:
+
+            return render(request, "menu_form.html",context)
+
+        

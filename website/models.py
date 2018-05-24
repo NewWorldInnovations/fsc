@@ -22,6 +22,12 @@ class Foods(models.Model):
 	f_status = models.CharField(max_length=200, default='1', choices=choices_status,verbose_name='status')
 	date_created = models.DateTimeField(("Date Created"), default=timezone.now)
 
+	def category_as_list(self):
+		return self.category.split(',')
+
+	def category_as_class(self):
+		return self.category.replace(',','')
+
 
 class FoodRating(models.Model):
 	fid = models.ForeignKey(Foods, on_delete=models.CASCADE,verbose_name='Food ID', default=None)

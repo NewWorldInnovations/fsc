@@ -6,7 +6,33 @@
 {% endblock %}
 
 {% block content %}
-<h1>My Profile</h1>
+<div class="container">
+	<div class="section">
+		<div class="row">
+			<div class="col l12">
+				<h1>My Profile</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col l12">
+				<table class="responsive-table bordered striped highlight">
+					<tr>
+						<th>Name</th>
+						<th>Category</th>
+						<th>Options</th>
+					</tr>
+					{% for item in foods %}
+					<tr>
+						<td>{{ item.fname }}</td>
+						<td>{{ item.category }}</td>
+						<td><a href="/menuedit/{{ item.id }}" class="btn-floating waves-effect"><i class="material-icons">mode_edit</i></a></td>
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
 
 {% block script %}

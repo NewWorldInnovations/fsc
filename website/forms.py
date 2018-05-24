@@ -28,7 +28,7 @@ class FoodsForm(forms.Form):
 	price_l = forms.DecimalField(widget=forms.NumberInput(attrs={'value': 0.00}), decimal_places=2,required=False,label='Price Large')
 	price = forms.DecimalField(widget=forms.NumberInput(attrs={'value': 0.00}), decimal_places=2,required=False,label='Price')
 	choices_status = (('1', 'Active'),('2','Inactive'))
-	f_status = forms.ChoiceField(widget=forms.Select, required=False, choices=choices_status,label='status')
+	f_status = forms.ChoiceField(widget=forms.RadioSelect(attrs={'class': 'star'}), required=False, choices=choices_status,label='Status', initial="1")
 
 class FoodRatingForm(forms.Form):
 	rating = forms.DecimalField(widget=forms.NumberInput(attrs={'value': 0.00}), decimal_places=2,label='Rating')

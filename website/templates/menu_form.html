@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="section">
+		<div class="row">
+			<div class="col l12">
+				<form id="frm_product" action="{{ form_action }}" method="POST" class="col s12" enctype="multipart/form-data">
+				<div class="row">
+					<div class="col l6">
+					{% csrf_token %}
+					{% for frmfield in form %}
+						{% if frmfield.name == 'f_status' %}
+							<label>{{ frmfield.label }}</label>
+							<div class="input-field">
+								{% for val, html in frmfield.field.choices %}
+								<input name="{{ frmfield.name }}" type="radio" id="{{ html|lower }}" value="{{ val }}" {% if frmfield.initial == val %}checked{% endif %}/>
+      							<label for="{{ html|lower }}">{{ html }}</label>
+      							{% endfor %}
+							</div>
+						{% else %}
+						<div class="input-field">
+							<label for="{{ field.id_for_label }}">{{ frmfield.label }}{% if frmfield.field.required %} <span class="red-text">*</span>{% endif %}
+							{% if frmfield.help_text %}
+								<a href="#" class="tooltipped" tabindex="-1" data-position="bottom" data-enable-html="true" data-tooltip="{{ frmfield.help_text|safe }}" onclick="return false;">
+									<i class="far fa-question-circle"></i>
+								</a>
+							{% endif %}
+							</label>
+							{{ frmfield }}
+						</div>
+						{% for error in field.errors %}
+							<p class="red-text">{{ error }}</p>
+						{% endfor %}
+						{% endif %}
+					{% endfor %}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col l6">
+						<span class="red-text">All field with (*) are required. </span>
+						<div class="input-field">
+							<button type="submit" id="" class="btn waves-effect waves-light right">Save</button>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

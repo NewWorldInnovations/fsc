@@ -16,4 +16,6 @@ urlpatterns = [
     url(r'^contact/$', views.contactus, name="contactus"),
     url(r'^thanks/$', views.contactus, name="thanks"),
     url(r'^menus/$', views.menus, name="menus"),
+    url(r'^menuform/$', views.food_form_view, name="menuform"),
+    url(r'^menuedit/(?P<id>\d+)/$', views.food_form_edit, name="menuedit"),
 ]

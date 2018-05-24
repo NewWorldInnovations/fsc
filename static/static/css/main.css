@@ -190,6 +190,10 @@ blockquote {
   	overflow: hidden;
   	text-overflow: ellipsis;
 }
+.card-reveal .card-title{
+    max-width: initial;
+}
+
 .morevert{
 	cursor: pointer;
 }
@@ -198,6 +202,12 @@ blockquote {
 	margin-right: 20px;
     vertical-align: text-bottom;
     font-family: "Poppins", sans-serif;
+}
+
+
+/*Radio/Checkbox fix*/
+.input-field label {
+  pointer-events: auto;
 }
 
 /*FOOTER*/
