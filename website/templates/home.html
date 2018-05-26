@@ -187,12 +187,12 @@
 		$('.category').click(function(){
 			cat = $(this).attr('data-cat');
 			if(cat=="all"){
-				$('.menus').show();
+				$('.menus').hide();
 			} else {
-				$('.menus').hide();	
+				$('.menus').fadeOut();	
 
 				if($('.menus').hasClass(cat)){
-					$('.'+cat).show();
+					$('.'+cat).fadeIn();
 				}
 			}
 			

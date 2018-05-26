@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n4e(+50zlf2y14r7roq!n#4v$j6(!+@_@n1vqke=rs_y+0u@10'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost','199.195.116.109']
 
 
 # Application definition
@@ -121,11 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = BASE_DIR + '/static/'
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static", "static-only")
-MEDIA_ROOT = os.path.join(BASE_DIR, "static", "media")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static", "static")),
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "static-only")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static", "media")
+STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), "static", "static")),
 
 
 #On successful login
